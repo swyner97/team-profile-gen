@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
-const generateHTML = require("./generateHTML")
+const generateHTML = require("./generateHTML");
 let Engineer = require('./lib/Engineer');
 let Intern = require('./lib/Intern');
 let Manager = require('./lib/Manager');
@@ -16,7 +16,15 @@ let prompt = () => {
             type: "confirm",
             name: "new",
             message: "Would you like to add an employee?",
-            choices: ["yes", "no"]
+            choices: ["yes", "no"],
+            validate: (anotherOne) => {
+                if (anotherOne) {
+                    return true
+                } else {
+                    console.log("Goodbye")
+                    return false
+                }
+            }
         },
         {
             type: "list",
@@ -108,7 +116,6 @@ let prompt = () => {
                     return false;
                 }
             }
-
         },
         {
             type: "input",
@@ -226,27 +233,10 @@ let writeFile = (answers) => {
         if (err) {
             throw err;
         } else {
-            console.log("Team Prolfile has been created!")
+            console.log("Team Profile has been created!")
         }
     })
 }
 
 
 prompt()
-    ,then(team => {
-        return generateHTML(team);
-    })
-    .then(answers => {
-        return writeFile(answers);
-    })
-    .catch(err => {
-        console.log(err)
-    })
-
-    // .catch((error) => {
-    //     if (error.isTtyError) {
-    //         // Prompt couldn't be rendered in the current environment
-    //     } else {
-    //         // Something else went wrong
-    //     }
-    // });
