@@ -4,8 +4,6 @@ const generateHTML = require("./src/generateHTML");
 let Engineer = require('./lib/Engineer');
 let Intern = require('./lib/Intern');
 let Manager = require('./lib/Manager');
-console.log(module.generateHTML)
-console.log(module.exports)
 
 
 const team = [];
