@@ -1,14 +1,16 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
-const generateHTML = require("./generateHTML");
+const generateHTML = require("./src/generateHTML");
 let Engineer = require('./lib/Engineer');
 let Intern = require('./lib/Intern');
 let Manager = require('./lib/Manager');
+console.log(module.generateHTML)
+console.log(module.exports)
 
 
 const team = [];
 
-let prompt = () => {
+let questions = () => {
 
 
     inquirer.prompt([
@@ -228,15 +230,19 @@ let prompt = () => {
         })
 }
 
-let writeFile = (answers) => {
-    fs.writeFile("./dist/index.html", answers, err => {
-        if (err) {
-            throw err;
-        } else {
-            console.log("Team Profile has been created!")
-        }
-    })
+// function to write README file
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
+// Initializing the app
+function init() {
+    inquirer.prompt(questions)
+        .then((inquirerAnswers) => {
+            console.log("Your team profile has been successfully generated");
+            writeToFile("./dist/index.html", generateHTML({ ...inquirerAnswers }));
+        })
+}
 
-prompt()
+init();
+

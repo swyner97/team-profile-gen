@@ -97,13 +97,8 @@ teamArr = (team) => {
     
     let generateTeam = generateCard(cards);
     return generateCard
-}
+};
 
 
-let generateCard = () => {
-    
-}
 
-teamArr()
-
-// module.exports = generateHTML;
+module.exports = generateHTML;
