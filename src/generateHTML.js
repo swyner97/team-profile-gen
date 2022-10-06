@@ -1,4 +1,5 @@
-let generateEngineer = (Engineer) => {
+const generateTeam = team => {
+  let generateEngineer = (Engineer) => {
     return `
 <div class="card">
       <div class="media-content">
@@ -65,45 +66,46 @@ let generateManager = (Manager) => {
     </div>
   </div>
 </div>`
-}
+};
 
+const html = [];
 
-teamArr = (team) => {
-    arr = [];
+html.push(team
+  .filter(employee=> employee.getRole() === 'Manager')
+  .map(manager => generateManager(manager))
+  );
 
-    for (let i = 0; i < team.length; i++) {
-        const employee = team[i];
-        const role = employee.getRole();
+  html.push(team
+    .filter(employee=> employee.getRole() === 'Engineer')
+    .map(engineer => generateEngineer(engineer))
+    );
 
-        if (role === "Intern") {
-            const internCard = generateIntern(employee);
-            arr.push(internCard);
-        };
+    html.push(team
+      .filter(employee=> employee.getRole() === 'Intern')
+      .map(intern => generateIntern(intern))
+      );
 
-        if (role === "Engineer") {
-            const engineerCard = generateEngineer(employee);
-            arr.push(engineerCard);
-        };
+      return html.join('');
+};
 
-        if (role === "Manager") {
-            const managerCard = generateManager(employee);
-            arr.push(managerCard);
-        };
-    }
-
-    const cards = arr.join("")
-
-    console.log(cards);
-    
-    let generateTeam = generateCard(cards);
-    return generateCard
-}
-
-
-let generateCard = () => {
-    
-}
-
-teamArr()
-
-// module.exports = generateHTML;
+module.exports= team => {
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">r
+      <title>Document</title>
+  </head>
+  <body>
+  
+      <div>
+          ${generateTeam(team)}
+      </div>
+      
+  
+      
+  </body>
+  </html>`
+};
