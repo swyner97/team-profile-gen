@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 const generateTeam = team => {
   let generateEngineer = (Engineer) => {
     return `
-=======
-let generateEngineer = (Engineer) => {
-  return `
->>>>>>> 72974d9f0d366faa15c655f2fd5928cb540af281
 <div class="card">
       <div class="media-content">
         <p class="title is-4">${Engineer.name}</p>
@@ -28,11 +23,7 @@ let generateEngineer = (Engineer) => {
 };
 
 let generateIntern = (Intern) => {
-<<<<<<< HEAD
     return `
-=======
-  return `
->>>>>>> 72974d9f0d366faa15c655f2fd5928cb540af281
     <div class="card">
       <div class="media-content">
         <p class="title is-4">${Intern.name}</p>
@@ -55,11 +46,7 @@ let generateIntern = (Intern) => {
 };
 
 let generateManager = (Manager) => {
-<<<<<<< HEAD
     return `
-=======
-  return `
->>>>>>> 72974d9f0d366faa15c655f2fd5928cb540af281
     <div class="card">
       <div class="media-content">
         <p class="title is-4">${Manager.name}</p>
@@ -79,7 +66,6 @@ let generateManager = (Manager) => {
     </div>
   </div>
 </div>`
-<<<<<<< HEAD
 };
 
 const html = [];
@@ -123,70 +109,3 @@ module.exports= team => {
   </body>
   </html>`
 };
-=======
-}
-
-
-generateHTML = (team) => {
-  arr = []
-
-  for (let i = 0; i < team.length; i++) {
-    const employee = team[i];
-    const role = employee.getRole();
-
-    if (role === "Intern") {
-      const internCard = generateIntern(employee);
-      arr.push(internCard);
-    };
-
-    if (role === "Engineer") {
-      const engineerCard = generateEngineer(employee);
-      arr.push(engineerCard);
-    };
-
-    if (role === "Manager") {
-      const managerCard = generateManager(employee);
-      arr.push(managerCard);
-    };
-  }
-
-  const cards = arr.join("");
-
-  console.log(cards);
-
-  let generateTeam = generateTeamCard(cards);
-  return generateCard
-};
-
-const generateTeamCard = function(cards) {
-  return `
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Font Awesome Icon -->
-      <script src="https://kit.fontawesome.com/a4ff3ab2fb.js" crossorigin="anonymous"></script>
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-      <link rel="stylesheet" href="./style.css">
-      <title>Team Profile Generator</title>
-    </head>
-    <body>
-        
-          <!-- NavBar -->
-  <div id="header">
-      <h1>My Team</h1>
-  </div>
-      <!-- Cards -->
-  <div class="row mt-5 mb-5" id="cards">
-  ${cards}
-  </div>
-  `
-  }
-
-
-
-module.exports = generateHTML;
->>>>>>> 72974d9f0d366faa15c655f2fd5928cb540af281
