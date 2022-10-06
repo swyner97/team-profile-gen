@@ -66,7 +66,7 @@ let prompt = () => {
                             console.log("Please enter a positive number greater than 0!");
                         };
                     }
-                },
+                }
             ])
                 .then((answers) => {
                     const manager = new Manager(
@@ -79,6 +79,142 @@ let prompt = () => {
                     idArr.push(answers.id);
                     createTeam();
                 });
+
+
+
+            let addEngineer = () => {
+                inquirer.prompt([
+                    {
+                        type: "input",
+                        name: "name",
+                        message: "What is the engineer's name?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter a name!");
+                                return false;
+                            }
+                        }
+                    },
+                    {
+                        type: "number",
+                        name: "id",
+                        message: "What's the engineer's identification number?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter an ID number!");
+                                return false;
+                            }
+                        }
+                    },
+                    {
+                        type: "input",
+                        name: "email",
+                        message: "What is the engineer's email?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter an email!")
+                            }
+                        }
+                    },
+                    {
+                        type: "input",
+                        name: "github",
+                        message: "What is the engineer's Github username?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true
+                            } else {
+                                console.log("Please enter a GitHub username!")
+                            }
+                        }
+                    }
+                ])
+                    .then((answers) => {
+                        const engineer = new Engineer(
+                            answers.name,
+                            answers.id,
+                            answers.email,
+                            answers.github
+                        );
+                        team.push(engineer);
+                        idArr.push(answers.id);
+                        createTeam();
+                    });
+            }
+
+            let addIntern = () => {
+                inquirer.prompt([
+                    {
+                        type: "input",
+                        name: "name",
+                        message: "What is the intern's name?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter a name!");
+                                return false
+                            }
+                        }
+                    },
+                    {
+                        type: "number",
+                        name: "id",
+                        message: "What's the intern's identification number?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter an ID number!");
+                            };
+                        }
+
+                    },
+                    {
+                        type: "input",
+                        name: "email",
+                        message: "What is the intern's email?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter an email!");
+
+                            };
+                        }
+                    },
+                    {
+                        type: "input",
+                        name: "school",
+                        message: "What school is the intern attending?",
+                        validate: (answer) => {
+                            if (answer) {
+                                return true;
+                            } else {
+                                console.log("Please enter an email!")
+
+                            };
+                        }
+                    }
+                ])
+                    .then((answers) => {
+                        const intern = new Intern(
+                            answers.name,
+                            answers.id,
+                            answers.email,
+                            answers.school
+                        );
+                        team.push(intern);
+                        idArr.push(answers.id);
+                        createTeam();
+                    });
+            };
 
             let createTeam = () => {
                 // inquirer.prompt
@@ -103,11 +239,12 @@ let prompt = () => {
                                 buildTeam();
                         };
                     });
+
                 let buildTeam = () => {
                     if (!fs.existsSync(DIST_DIR)) {
                         fs.mkdirSync(DIST_DIR);
                     }
-                    fs.writeFileSync(distPath, render(team), 'utf-8');
+                    fs.writeFileSync(distPath, generateHTML(team), 'utf-8');
                 };
             };
         };
