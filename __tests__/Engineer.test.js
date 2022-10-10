@@ -7,6 +7,7 @@ describe('Test Engineer Class', () => {
 		expect(typeof me).toBe('object');
 	})
 
+
 	it("can set a github username via constructor", () => {
 		const test = "Chili";
 		const engineer = new Engineer("Rachel", 2, "rachel@mail.com", test);
@@ -14,4 +15,4 @@ describe('Test Engineer Class', () => {
 		expect(engineer.getGithub()).toBe(test);
 	});
 	
-})
+});
