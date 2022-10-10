@@ -1,15 +1,16 @@
-const Employee = require('../lib/Employee');
+const Intern = require('../lib/Intern');
 
-describe('Test Employee Class', () => {
-	it('should create a new employee object', () => {
-		const me = new Employee(1, 'swyner@gmail.com', 'sarah');
+describe('Test Intern Class', () => {
+	it('should create a new intern object', () => {
+		const intern = new Intern("Pico", 3, "pico@gmail.com");
 
-		expect(typeof me).toBe('object');
+		expect(typeof intern).toBe('object');
 	})
 
 	it('can set a school via constructor', () => {
-		const me = new Employee(1, 'swyner@gmail.com', 'sarah');
+		const test = "UCSB";
+		const intern = new Intern("Pico", 3, "pico@gmail.com", test);
 
-		expect(me.name).toEqual('UCSB');
+		expect(intern.getSchool()).toEqual(test);
 	})
 })

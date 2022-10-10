@@ -9,6 +9,7 @@ const DIST_DIR = path.resolve(__dirname, 'dist');
 const distPath = path.join(DIST_DIR, 'team.html');
 
 const team = [];
+team.join('');
 const idArr = [];
 
 let prompt = () => {
@@ -224,7 +225,7 @@ let prompt = () => {
                         type: "list",
                         name: 'new',
                         message: "Would you like to add another role?",
-                        choices: ['Manager', 'Engineer', 'Intern', 'No, build my team!']
+                        choices: ['Engineer', 'Intern', 'No, build my team!']
                     }
                 ]) // .then take user choice user switch case to add engineer/intern/manager call function to inquire questions for each role
                     .then((userChoice) => {

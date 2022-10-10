@@ -1,15 +1,16 @@
-const Employee = require('../lib/Employee');
+const Manager = require('../lib/Manager');
 
-describe('Test Employee Class', () => {
-	it('should create a new employee object', () => {
-		const me = new Employee(1, 'swyner@gmail.com', 'sarah');
+describe('Test Manager Class', () => {
+	it('should create a new manager object', () => {
+		const me = new Manager(1, 'swyner@gmail.com', 'Sarah');
 
 		expect(typeof me).toBe('object');
 	})
 
 	it('can set an office number via constructor', () => {
-		const me = new Employee(1, 'swyner@gmail.com', 'sarah');
+		const test = "123";
+		const me = new Manager(1, 'swyner@gmail.com', 'Sarah', test);
 
-		expect(me.name).toEqual('123');
+		expect(me.getOffice()).toEqual(test);
 	})
 })
