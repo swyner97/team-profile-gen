@@ -17,6 +17,8 @@
   ### Please install the following for this application: 
   #### inquirer
   #### jest
+
+  ### then run node index to start application 
   ------------------
   ## DEPLOYMENT 
   https://swyner97.github.io/team-profile-gen/ <br>
