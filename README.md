@@ -8,12 +8,15 @@
   ## TECHNOLOGIES USED
   ### Node.js
   ### Inquirer
+  ### Jest
   ### Bulma
   ### Html
   ### CSS
   ------------------
-  ## TEST  
-  ### Jest
+  ## INSTALLATION
+  ### Please install the following for this application: 
+  #### inquirer
+  #### jest
   ------------------
   ## DEPLOYMENT 
   https://swyner97.github.io/team-profile-gen/ <br>
