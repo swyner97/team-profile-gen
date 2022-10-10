@@ -16,3 +16,6 @@
   ## DEPLOYMENT 
   https://swyner97.github.io/team-profile-gen/
   https://github.com/swyner97/team-profile-gen
+
+  ## DEMO VIDEO 
+  https://drive.google.com/file/d/1bx7jgkDbulgVYlA3HjNFu8xgH1Q-JYrG/view
