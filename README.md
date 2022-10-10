@@ -16,7 +16,7 @@
   ### Jest
   ------------------
   ## DEPLOYMENT 
-  https://swyner97.github.io/team-profile-gen/
+  https://swyner97.github.io/team-profile-gen/ <br>
   https://github.com/swyner97/team-profile-gen
 
   ## DEMO VIDEO 
